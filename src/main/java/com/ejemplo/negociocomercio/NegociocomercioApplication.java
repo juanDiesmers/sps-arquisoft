@@ -1,17 +1,10 @@
-package com.ejemplo.negociocomercio;
+package com.arquisoft.negociocomercio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class NegociocomercioApplication extends SpringBootServletInitializer {
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(NegociocomercioApplication.class);
-    }
+public class NegociocomercioApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(NegociocomercioApplication.class, args);
