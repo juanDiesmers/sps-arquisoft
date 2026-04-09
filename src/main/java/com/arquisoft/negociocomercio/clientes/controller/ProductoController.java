@@ -1,4 +1,4 @@
-package com.arquisoft.negociocomercio.productos.controller;
+package com.arquisoft.negociocomercio.clientes.controller;
 
 import com.arquisoft.negociocomercio.productos.entity.Producto;
 import com.arquisoft.negociocomercio.productos.service.ProductoService;
