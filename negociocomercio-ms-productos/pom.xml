@@ -1,19 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Info del proyecto -->
-    <groupId>com.ejemplo</groupId>
-    <artifactId>negociocomercio</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>negociocomercio</name>
-    <description>Proyecto Arquitectura Software</description>
-    <packaging>jar</packaging>
-
-    <!-- Spring Boot -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -21,72 +12,53 @@
         <relativePath/>
     </parent>
 
-    <!-- Configuración Java -->
+    <groupId>com.arquisoft</groupId>
+    <artifactId>negociocomercio-ms-productos</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>negociocomercio-ms-productos</name>
+    <description>Microservicio de productos</description>
+    <packaging>jar</packaging>
+
     <properties>
-        <java.version>21</java.version>
+        <java.version>17</java.version>
     </properties>
 
-    <!-- Dependencias -->
     <dependencies>
-
-        <!-- Web (REST API) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- JPA (Base de datos) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!-- Base de datos H2 -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Lombok (opcional, puedes quitarlo si no lo usas) -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
 
-        <!-- Tests -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
-
-
-
     </dependencies>
 
-    <!-- Build -->
     <build>
         <plugins>
-
-            <!-- Compilador Java -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
-                <configuration>
-                    <release>21</release>
-                </configuration>
-            </plugin>
-
-            <!-- Plugin de Spring Boot -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
         </plugins>
     </build>
-
 </project>
