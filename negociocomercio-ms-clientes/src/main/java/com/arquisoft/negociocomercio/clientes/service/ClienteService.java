@@ -1,8 +1,10 @@
 package com.arquisoft.negociocomercio.clientes.service;
 
+import com.arquisoft.negociocomercio.clientes.dto.ClienteMessage;
 import com.arquisoft.negociocomercio.clientes.entity.Cliente;
 import com.arquisoft.negociocomercio.clientes.repository.ClienteRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -28,6 +30,26 @@ public class ClienteService {
         if (cliente.getFechaRegistro() == null) {
             cliente.setFechaRegistro(LocalDateTime.now());
         }
+        return clienteRepository.save(cliente);
+    }
+
+    @Transactional
+    public void guardarDesdeEventos(List<ClienteMessage> mensajes) {
+        for (ClienteMessage msg : mensajes) {
+            guardarDesdeEvento(msg);
+        }
+    }
+
+    @Transactional
+    public Cliente guardarDesdeEvento(ClienteMessage msg) {
+        Cliente cliente = clienteRepository.findByCorreo(msg.getCorreo()).orElseGet(Cliente::new);
+
+        cliente.setNombre(msg.getNombre());
+        cliente.setCorreo(msg.getCorreo());
+        cliente.setFechaRegistro(
+                msg.getFechaRegistro() != null ? msg.getFechaRegistro() : LocalDateTime.now()
+        );
+
         return clienteRepository.save(cliente);
     }
 
